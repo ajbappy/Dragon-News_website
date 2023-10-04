@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.NavLink {
+  color: #000;
+}
+
+.NavLink.active {
+  color: #ff0000;
+  background-color: #e7e7e7;
+  padding: 5px 10px;
+}

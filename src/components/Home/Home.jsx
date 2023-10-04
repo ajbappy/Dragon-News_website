@@ -42,7 +42,7 @@ const Home = () => {
       <Nav classNamemt="mt-5"></Nav>
 
       <div className="grid grid-cols-1 md:grid-cols-4 mt-16 gap-5">
-        <div className="col-span-1 md:col-span-1">
+        <div className="col-span-1 md:col-span-1 ">
           <Categoris
             selectedCatagoryId={selectedCatagoryId}
             handelCatagoryChange={handelCatagoryChange}

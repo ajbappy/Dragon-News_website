@@ -7,6 +7,9 @@ import Root from "./Root.jsx";
 import Home from "./components/Home/Home.jsx";
 import About from "./components/Home/About/About.jsx";
 import Carrer from "./components/Home/About/carrer/Carrer.jsx";
+import LogIn from "./components/Home/LogIn/Regester/LogIn.jsx";
+import Regester from "./components/Home/LogIn/Regester/Regester.jsx";
+import { AuthContex } from "./components/Home/Provaider/AuthProvaider.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,12 +29,23 @@ const router = createBrowserRouter([
         path: "/carrer",
         element: <Carrer></Carrer>,
       },
+
+      {
+        path: "/login",
+        element: <LogIn></LogIn>,
+      },
+      {
+        path: "/regester",
+        element: <Regester></Regester>,
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthContex.Provider>
+      <RouterProvider router={router} />
+    </AuthContex.Provider>
   </React.StrictMode>
 );

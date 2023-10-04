@@ -15,7 +15,7 @@ const Categoris = ({ selectedCatagoryId, handelCatagoryChange }) => {
   }, []);
 
   return (
-    <div>
+    <div className="sticky top-20">
       <h1 className="text-black text-md font-semibold">All Caterogy</h1>
       <div>
         {catagorys.map((category) => (
@@ -23,7 +23,7 @@ const Categoris = ({ selectedCatagoryId, handelCatagoryChange }) => {
             key={category.id}
             onClick={() => handelCatagoryChange(category.id)}
             className={`list-none px-3 m-3 cursor-pointer ${
-              selectedCatagoryId === category.id ? "bg-red-500 text-white" : ""
+              selectedCatagoryId === category.id ? "bg-blue-700 text-white" : ""
             }`}
           >
             {category.name}

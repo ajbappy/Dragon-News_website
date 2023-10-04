@@ -1,5 +1,5 @@
 import user from "../../../assets/user.png";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Nav = () => {
   const links = (
@@ -10,30 +10,25 @@ const Nav = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink
-          activeClassName="active"
-          className="NavLink"
-          to="/"
-          to="/about"
-        >
+        <NavLink activeClassName="active" className="NavLink" to="/about">
           About
         </NavLink>
       </li>
       <li>
-        <NavLink
-          activeClassName="active"
-          className="NavLink"
-          to="/"
-          to="/carrer"
-        >
+        <NavLink activeClassName="active" className="NavLink" to="/carrer">
           Carrer
+        </NavLink>
+      </li>
+      <li>
+        <NavLink activeClassName="active" className="NavLink" to="/login">
+          Log In
         </NavLink>
       </li>
     </>
   );
 
   return (
-    <div>
+    <div className="sticky top-0">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
@@ -67,7 +62,22 @@ const Nav = () => {
         </div>
         <div className="navbar-end flex items-center gap-2">
           <img className="w-[45px]" src={user} alt="" />
-          <a className="btn bg-gray-800 text-white">Button</a>
+          {/* {user ? (
+              <button
+                onClick={() => logOutUser()}
+                className="text-xl py-2 px-10 text-white bg-[#403F3F]"
+              >
+                Sign Out
+              </button>
+            ) : (
+              <Link
+                to={"/login"}
+                className="text-xl py-2 px-10 text-white bg-[#403F3F]"
+              >
+                Login
+              </Link>
+            )} */}
+          <a className="btn bg-blue-700 text-white capitalize">Log In</a>
         </div>
       </div>
     </div>

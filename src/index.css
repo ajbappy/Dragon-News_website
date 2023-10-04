@@ -13,7 +13,7 @@ body {
 }
 
 .NavLink.active {
-  color: #ff0000;
-  background-color: #e7e7e7;
+  color: white;
+  background-color: #1D4ED8;
   padding: 5px 10px;
 }

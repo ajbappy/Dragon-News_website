@@ -13,10 +13,10 @@ import zoon3 from "../../assets/qZone3.png";
 
 const HomeRight = () => {
   return (
-    <div>
-      <div>
+    <div className="sticky top-20">
+      <div className="">
         <h1 className="text-black font-semibold text-md">Log In With</h1>
-        <button className="btn bg-transparent border border-blue-600 text-blue-600 capitalize my-3 w-full">
+        <button className="btn bg-transparent border border-blue-600 text-blue-700 capitalize my-3 w-full">
           <FaGoogle></FaGoogle>
           Log In with Google
         </button>

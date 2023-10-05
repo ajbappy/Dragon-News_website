@@ -9,7 +9,7 @@ import About from "./components/Home/About/About.jsx";
 import Carrer from "./components/Home/About/carrer/Carrer.jsx";
 import LogIn from "./components/Home/LogIn/Regester/LogIn.jsx";
 import Regester from "./components/Home/LogIn/Regester/Regester.jsx";
-import { AuthContex } from "./components/Home/Provaider/AuthProvaider.jsx";
+import AuthProvaider from "./components/Home/Provaider/AuthProvaider.jsx";
 
 const router = createBrowserRouter([
   {
@@ -44,8 +44,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthContex.Provider>
+    <AuthProvaider>
       <RouterProvider router={router} />
-    </AuthContex.Provider>
+    </AuthProvaider>
   </React.StrictMode>
 );

@@ -10,17 +10,35 @@ import {
 import zoon1 from "../../assets/qZone1.png";
 import zoon2 from "../../assets/qZone2.png";
 import zoon3 from "../../assets/qZone3.png";
+import { useContext } from "react";
+import { AuthContex } from "./Provaider/AuthProvaider";
 
 const HomeRight = () => {
+  const { user, logInWithGoogle, logInWithGithub } = useContext(AuthContex);
+
+  const handelGoogle = () => {
+    logInWithGoogle();
+  };
+
+  const handelGithub = () => {
+    logInWithGithub();
+  };
+
   return (
     <div className="sticky top-20">
       <div className="">
         <h1 className="text-black font-semibold text-md">Log In With</h1>
-        <button className="btn bg-transparent border border-blue-600 text-blue-700 capitalize my-3 w-full">
+        <button
+          onClick={handelGoogle}
+          className="btn bg-transparent border border-blue-600 text-blue-700 capitalize my-3 w-full"
+        >
           <FaGoogle></FaGoogle>
           Log In with Google
         </button>
-        <button className="btn bg-transparent border border-black text-black capitalize w-full">
+        <button
+          onClick={handelGithub}
+          className="btn bg-transparent border border-black text-black capitalize w-full"
+        >
           <FaSquareGithub></FaSquareGithub>
           Log In with Github
         </button>

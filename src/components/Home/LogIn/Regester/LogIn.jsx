@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
 import Nav from "../../nav/Nav";
 import { Link } from "react-router-dom";
+import { AuthContex } from "../../Provaider/AuthProvaider";
 
 const LogIn = () => {
+  const { user, error, logInUser, handelError, succes, handelSuccces } =
+    useContext(AuthContex);
+
   const handelLogInForm = (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     console.log(formData);
+
+    const email = formData.get("email");
+    const password = formData.get("password");
+    handelError("");
+    handelSuccces("");
+
+    logInUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        handelSuccces("log in succesfully");
+      })
+      .catch((error) => {
+        console.log(error.message);
+        handelError("you are all ready loged in");
+      });
   };
 
   return (
@@ -51,6 +70,10 @@ const LogIn = () => {
             Regester
           </Link>
         </p>
+        {succes && (
+          <p className="font-semibold text-center text-green-800">{succes}</p>
+        )}
+        {error && <p className="font-semibold text-red-700">{error}</p>}
       </div>
     </div>
   );

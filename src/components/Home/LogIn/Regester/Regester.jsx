@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { AuthContex } from "../../Provaider/AuthProvaider";
 
 const Regester = () => {
-  const { creatUser } = useContext(AuthContex);
+  const { creatUser, error, handleError, succces, handelSuccces } =
+    useContext(AuthContex);
 
   const handelRegForm = (e) => {
     e.preventDefault();
@@ -12,20 +13,24 @@ const Regester = () => {
     console.log(formData);
 
     const name = formData.get("text");
-    const pass = formData.get("password");
+    const password = formData.get("password");
     const photo = formData.get("photo");
     const email = formData.get("email");
 
-    console.log(email, name, pass, photo);
+    console.log(email, name, password, photo);
+    handleError("");
+    handelSuccces("");
 
     // create user
 
-    creatUser(email, pass)
+    creatUser(email, password)
       .then((result) => {
         console.log(result.user);
+        handelSuccces("User Created succesfully");
       })
       .catch((error) => {
         console.log(error.message);
+        handleError("this email already used");
       });
   };
   return (
@@ -93,11 +98,17 @@ const Regester = () => {
         </form>
 
         <p className="text-center mt-5">
-          Already Have An Account ?{" "}
+          Already Have An Account ?
           <Link to="/login" className="text-red-700 font-bold">
             Log In
           </Link>
         </p>
+        {succces && (
+          <p className="text-green-800 font-semibold text-center">{succces}</p>
+        )}
+        {error && (
+          <p className="text-center text-red-700 font-semibold">{error}</p>
+        )}
       </div>
     </div>
   );

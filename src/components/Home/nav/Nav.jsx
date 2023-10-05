@@ -1,7 +1,11 @@
-import user from "../../../assets/user.png";
+import { useContext } from "react";
+import users from "../../../assets/user.png";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContex } from "../Provaider/AuthProvaider";
 
 const Nav = () => {
+  const { user } = useContext(AuthContex);
+
   const links = (
     <>
       <li>
@@ -17,11 +21,6 @@ const Nav = () => {
       <li>
         <NavLink activeClassName="active" className="NavLink" to="/carrer">
           Carrer
-        </NavLink>
-      </li>
-      <li>
-        <NavLink activeClassName="active" className="NavLink" to="/login">
-          Log In
         </NavLink>
       </li>
     </>
@@ -55,29 +54,33 @@ const Nav = () => {
               {links}
             </ul>
           </div>
-          {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="flex gap-5 menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end flex items-center gap-2">
-          <img className="w-[45px]" src={user} alt="" />
+          <img className="w-[45px]" src={users} alt="" />
           {/* {user ? (
-              <button
-                onClick={() => logOutUser()}
-                className="text-xl py-2 px-10 text-white bg-[#403F3F]"
-              >
-                Sign Out
-              </button>
-            ) : (
-              <Link
-                to={"/login"}
-                className="text-xl py-2 px-10 text-white bg-[#403F3F]"
-              >
-                Login
-              </Link>
-            )} */}
-          <a className="btn bg-blue-700 text-white capitalize">Log In</a>
+            <button
+              onClick={() => logOutUser()}
+              className="text-xl py-2 px-10 text-white bg-[#403F3F]"
+            >
+              Sign Out
+            </button>
+          ) : (
+            <Link
+              to={"/login"}
+              className="text-xl py-2 px-10 text-white bg-[#403F3F]"
+            >
+              Login
+            </Link>
+          )} */}
+          <Link to="/login">
+            <button className="btn bg-blue-700 text-white capitalize">
+              {" "}
+              Log In
+            </button>
+          </Link>
         </div>
       </div>
     </div>
